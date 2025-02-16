@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"server/auth"
 )
 
 const PORT string = ":8080"
@@ -11,9 +12,7 @@ const CLIENTURL string = "http://localhost:8090"
 
 func main() {
 
-	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprint(w, "<h1>Welcome to OAuth Server</h1>")
-	})
+	http.HandleFunc("/authorize", auth.Authorize)
 
 	fmt.Println("Server Listening on port", PORT)
 	err := http.ListenAndServe(PORT, nil)
