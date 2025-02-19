@@ -13,6 +13,8 @@ const CLIENTURL string = "http://localhost:8090"
 func main() {
 
 	http.HandleFunc("/authorize", auth.Authorize)
+	http.HandleFunc("/login", auth.Login)
+	http.HandleFunc("/consent", auth.RequestApproval)
 
 	fmt.Println("Server Listening on port", PORT)
 	err := http.ListenAndServe(PORT, nil)
