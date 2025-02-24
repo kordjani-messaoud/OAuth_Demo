@@ -11,7 +11,6 @@ import (
 
 // I need to think more about the scopes
 var scopes []string
-var isScopesUpdated bool = false
 
 func Authorize(w http.ResponseWriter, r *http.Request) {
 	// Validate method
@@ -61,7 +60,6 @@ func ValidAuthzReq(params url.Values) bool {
 				scopes = slices.DeleteFunc(scopes, func(v string) bool {
 					return v == scope
 				})
-				isScopesUpdated = true
 			}
 		}
 		if len(scopes) != 0 {
@@ -71,8 +69,8 @@ func ValidAuthzReq(params url.Values) bool {
 	return false
 }
 
-func NewAuthzResCombinaison(state string) *AuthzResCombinason {
-	return &AuthzResCombinason{
+func NewAuthzResCombinaison(state string) *AuthzResCombinaison {
+	return &AuthzResCombinaison{
 		rand.Text(),
 		state,
 		rand.Text(),

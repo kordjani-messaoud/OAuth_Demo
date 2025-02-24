@@ -9,4 +9,4 @@ var apps = map[ClientId]App{
 	},
 }
 
-var AuthzResCombinaisons = make(map[ClientId]AuthzResCombinason)
+var AuthzResCombinaisons = make(map[ClientId]AuthzResCombinaison)

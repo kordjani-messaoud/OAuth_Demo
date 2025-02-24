@@ -15,7 +15,7 @@ type App struct {
 	Scopes       []string
 }
 
-type AuthzResCombinason struct {
+type AuthzResCombinaison struct {
 	Code        string
 	State       string
 	AccessToken string
